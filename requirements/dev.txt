@@ -1,0 +1,5 @@
+-r base.txt
+freezegun==0.3.7
+pytest==3.0.1
+pytest-cache==1.0
+python-dateutil==2.5.3
