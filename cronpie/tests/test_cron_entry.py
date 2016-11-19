@@ -5,6 +5,7 @@ from freezegun import freeze_time
 
 import cronpie
 
+
 class TestCronEntry:
 
     def test_rejects_wrong_entry(self):

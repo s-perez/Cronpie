@@ -1,10 +1,11 @@
 import multiprocessing
+import os
 import time
 from datetime import datetime
 
 import attr
 
-from .decorators import singleton
+from .utils.decorators import singleton
 
 
 def _run_command(command):

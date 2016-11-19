@@ -1,7 +1,7 @@
 import attr
 from bintrees import FastAVLTree
 
-from .decorators import singleton
+from .utils.decorators import singleton
 
 
 @singleton

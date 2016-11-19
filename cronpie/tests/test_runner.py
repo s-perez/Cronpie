@@ -1,9 +1,9 @@
 from unittest.mock import MagicMock, patch
 
 import freezegun
-import pytest
 
 from cronpie import runner as runner_module
+
 
 class TestRunner:
 
@@ -22,5 +22,7 @@ class TestRunner:
         with patch('multiprocessing.Process', mock):
             pid = runner._run_task(['ls'])
             assert pid == 10005
-            mock.assert_called_with(target=runner_module._run_command,
-                                    args=(['ls']))
+            mock.assert_called_with(
+                target=runner_module._run_command,
+                args=(['ls'])
+            )

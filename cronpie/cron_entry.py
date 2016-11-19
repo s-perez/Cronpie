@@ -4,7 +4,7 @@ from itertools import cycle
 import attr
 from croniter import croniter
 
-from .validators import is_cron_time_expression, is_non_empty_list
+from .utils.validators import is_cron_time_expression, is_non_empty_list
 
 
 @attr.s(slots=True)
@@ -28,10 +28,12 @@ class CronEntry:
     def next_run(self):
         if not self._datetime_gen:
             cron = croniter(self.time, datetime.now())
-            self._datetime_gen = (cron.get_next(datetime) for _ in cycle([None]))
+            self._datetime_gen = (
+                cron.get_next(datetime)
+                for _ in cycle([None])
+            )
         return next(self._datetime_gen)
 
     def _match(self, value, field):
         valid_values = self._compute_valid_values(field)
         return value in valid_values
-
